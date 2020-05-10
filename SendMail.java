@@ -36,9 +36,9 @@ public class SendMail {
             transport.connect(Data.fromMail, Data.fromMailPw);//登录发信账号
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
-            return "邮件发送成功";
+            return "邮件发送成功!";
         }catch (Exception e){
-            return "邮件发送失败";
+            return "邮件发送失败!";
         }
 	}
 }

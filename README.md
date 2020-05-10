@@ -1,10 +1,10 @@
-站在巨人的肩膀上，我所写的东西，也会开源分享出来！已经能正常用了，但是还需优化一些小bug。
+站在巨人的肩膀上，我所写的东西，也会开源分享出来！
 
 授人以鱼不如授人以渔，我把思路分享出来。
 
-如果程序优化好了，我会将源码放在这里[今日校园实现自动检测并提交最新表单](https://github.com/meethigher/cpdaily-submit)
+截止到5月11日，已经完美运行三天了。各种小bug也已修复。
 
-也可以直接访问我[博客](https://meethigher.top/blog/2020/cpdaily-automation/)
+源码放在这里[今日校园实现自动检测并提交最新表单](https://github.com/meethigher/cpdaily-submit)，思路的话也可以直接访问我[博客](https://meethigher.top/blog/2020/cpdaily-automation/)
 
 # 一、抓包（重点）
 

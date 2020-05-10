@@ -13,15 +13,6 @@ import net.sf.json.JSONObject;
  */
 public class CpDaily {
 	/**
-	 * 返回数据
-	 * 
-	 * @return
-	 */
-	public static String personalData() {
-		return Data.form;
-	}
-
-	/**
 	 * 进行post表单提交，并返回结果
 	 * 
 	 * @param fields
@@ -51,6 +42,7 @@ public class CpDaily {
 			System.out.println("获取表单信息失败，程序终止。请检查登录是否失效");
 			System.exit(0);
 		}
+
 		String flag;// flag用来判断本次查询是否有数据
 		String isHandled = "", collectWid = "", formWid = "";
 		if (todayForm.size() < 1) {// 没有数据
