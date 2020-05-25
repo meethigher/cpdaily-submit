@@ -4,41 +4,67 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class Main {
+	private static int hour;
+	private static int endHour;
+	public static int getHour() {
+		return hour;
+	}
+
+	public static void setHour(int hour) {
+		Main.hour = hour;
+	}
+
+	public static int getEndHour() {
+		return endHour;
+	}
+
+	public static void setEndHour(int endHour) {
+		Main.endHour = endHour;
+	}
+	static {
+		Scanner input = new Scanner(System.in);
+		System.out.print("è¯·è¾“å…¥å¼€å§‹ç›‘æµ‹çš„å°æ—¶ï¼š");
+		setHour(Integer.parseInt(input.nextLine()));;// å°æ—¶
+		System.out.print("è¯·è¾“å…¥ç»“æŸç›‘æµ‹çš„å°æ—¶ï¼š");
+		setEndHour(Integer.parseInt(input.nextLine()));;
+		input.close();
+	}
+
 	/**
-	 * ·µ»Ø½á¹û 
-	 * submited ½ñÈÕÒÑÌá½» 
-	 * error ½ñÈÕÌá½»Ê§°Ü 
-	 * success ½ñÈÕÌá½»³É¹¦ 
-	 * noform Î´·¢ÏÖ×îÐÂ±íµ¥
+	 * è¿”å›žç»“æžœ 
+	 * submited ä»Šæ—¥å·²æäº¤ 
+	 * error ä»Šæ—¥æäº¤å¤±è´¥ 
+	 * success ä»Šæ—¥æäº¤æˆåŠŸ 
+	 * noform æœªå‘çŽ°æœ€æ–°è¡¨å•
 	 * 
 	 * @return
 	 */
 	public static String start() {
 		String[] fields = CpDaily.getForm();
-		String result;// ´æ´¢ÔËÐÐµÄ½á¹û£¬ÓÊ¼þÍ¨Öª
+		String result;// å­˜å‚¨è¿è¡Œçš„ç»“æžœï¼Œé‚®ä»¶é€šçŸ¥
 		boolean flag;
-		// ÅÐ¶ÏÊÇ·ñÓÐÐÂ±íµ¥£¬yesÎªÓÐ£¬noÎªÃ»ÓÐ
+		// åˆ¤æ–­æ˜¯å¦æœ‰æ–°è¡¨å•ï¼Œyesä¸ºæœ‰ï¼Œnoä¸ºæ²¡æœ‰
 		if (fields[0].equals("yes")) {
 			flag = true;
-			// ÅÐ¶ÏÊÇ·ñÌá½»£¬1ÎªÒÑÌá½»£¬0ÎªÎ´Ìá½»
+			// åˆ¤æ–­æ˜¯å¦æäº¤ï¼Œ1ä¸ºå·²æäº¤ï¼Œ0ä¸ºæœªæäº¤
 			if (fields[1].equals("1")) {
-				System.out.println("½ñÈÕ±íµ¥ÒÑ¾­Ìá½»¹ýÁË£¡");
+				System.out.println("ä»Šæ—¥è¡¨å•å·²ç»æäº¤è¿‡äº†ï¼");
 				result = "submited";
 			} else {
-				System.out.println("ÕýÔÚ×¼±¸Ìá½»½ñÈÕ±íµ¥...");
+				System.out.println("æ­£åœ¨å‡†å¤‡æäº¤ä»Šæ—¥è¡¨å•...");
 				String schoolTaskWid = CpDaily.getSchool(fields);
 				String message = CpDaily.submit(fields, schoolTaskWid, Data.address);
-				// ÅÐ¶ÏÊÇ·ñÌá½»³É¹¦
+				// åˆ¤æ–­æ˜¯å¦æäº¤æˆåŠŸ
 				if (message.equals("SUCCESS")) {
-					System.out.println("½ñÈÕ±íµ¥ÒÑ³É¹¦Ìá½»£¡");
+					System.out.println("ä»Šæ—¥è¡¨å•å·²æˆåŠŸæäº¤ï¼");
 					result = "success";
 				} else {
-					System.out.println("½ñÈÕ±íµ¥Ìá½»Ê§°Ü£¬Ê§°Ü±¨¸æ->" + message);
+					System.out.println("ä»Šæ—¥è¡¨å•æäº¤å¤±è´¥ï¼Œå¤±è´¥æŠ¥å‘Š->" + message);
 					result = "error";
 				}
 			}
 		} else {
-			System.out.println("ÉÐÎ´·¢²¼×îÐÂ±íµ¥£¡");
+			System.out.println("å°šæœªå‘å¸ƒæœ€æ–°è¡¨å•ï¼");
 			result = "noform";
 		}
 		return result;
@@ -46,46 +72,60 @@ public class Main {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Scanner input = new Scanner(System.in);
-		System.out.print("ÇëÊäÈë¿ªÊ¼¼à²âµÄÐ¡Ê±£º");
-		int hour = Integer.parseInt(input.nextLine());// Ð¡Ê±
-		System.out.print("ÇëÊäÈë½áÊø¼à²âµÄÐ¡Ê±£º");
-		int endHour=Integer.parseInt(input.nextLine());
-		input.close();
-		Calendar c;
-		System.out.println("ÕýÔÚÔËÐÐ...");
-		boolean flag;// Èô¼à²â²¢³É¹¦Ìá½»£¬Ôòtrue;ÈôÎ´¼à²âµ½·¢²¼±íµ¥£¬Ôòfalse
-		while (true) {
-			c = Calendar.getInstance();
-			String result = null;
-			int sleepHour=0;
-			if (c.get(Calendar.HOUR_OF_DAY) >= hour&&c.get(Calendar.HOUR_OF_DAY)<endHour) {
-				result = start();
-			}else if(c.get(Calendar.HOUR_OF_DAY)>=endHour) {
-				result="submited";
+		//å¼€å¯æäº¤çº¿ç¨‹
+		new Thread(()->{
+			Calendar c;
+			System.out.println("æ­£åœ¨è¿è¡Œ...");
+			boolean flag;// è‹¥ç›‘æµ‹å¹¶æˆåŠŸæäº¤ï¼Œåˆ™true;è‹¥æœªç›‘æµ‹åˆ°å‘å¸ƒè¡¨å•ï¼Œåˆ™false
+			while (true) {
+				c = Calendar.getInstance();
+				String result = null;
+				int sleepHour=0;
+				if (c.get(Calendar.HOUR_OF_DAY) >= getHour()&&c.get(Calendar.HOUR_OF_DAY)<getEndHour()) {
+					result = start();
+				}else if(c.get(Calendar.HOUR_OF_DAY)>=getEndHour()) {
+					result="submited";
+				}
+				/*
+				 * è‹¥successæˆ–è€…erroræˆ–è€…submitedï¼Œåˆ™ç­‰åˆ°ç¬¬äºŒå¤©çš„æ—¶é—´å†æ‰§è¡Œ
+				 * è‹¥noformï¼Œåˆ™æ¯éš”1å°æ—¶æŸ¥è¯¢æ˜¯å¦å‘å¸ƒæ–°è¡¨å•
+				 */
+				if ("success".equals(result)) {
+					System.out.print(SendMail.send(new String[] { "ä»Šæ—¥æ ¡å›­é—®å·æäº¤é€šçŸ¥", "ä»Šæ—¥è¡¨å•æäº¤ç»“æžœï¼šæˆåŠŸï¼" }));
+					sleepHour=24-c.get(Calendar.HOUR_OF_DAY)+getHour();
+					System.out.println("ç¨‹åºä¼‘çœ "+sleepHour+"å°æ—¶åŽè¿è¡Œ");
+				} else if ("error".equals(result)) {
+					System.out.print(SendMail.send(new String[] { "ä»Šæ—¥æ ¡å›­é—®å·æäº¤é€šçŸ¥", "ä»Šæ—¥è¡¨å•æäº¤ç»“æžœï¼šå¤±è´¥ã€‚è¯·æ‰‹åŠ¨æäº¤" }));
+					sleepHour=24-c.get(Calendar.HOUR_OF_DAY)+getHour();
+					System.out.println("ç¨‹åºä¼‘çœ "+sleepHour+"å°æ—¶åŽè¿è¡Œ");
+				} else if ("noform".equals(result)) {
+					sleepHour=1;
+					System.out.println("ç¨‹åºä¼‘çœ "+sleepHour+"å°æ—¶åŽè¿è¡Œ");
+				} else if ("submited".equals(result)) {
+					sleepHour=24-c.get(Calendar.HOUR_OF_DAY)+getHour();
+					System.out.println("ç¨‹åºä¼‘çœ "+sleepHour+"å°æ—¶åŽè¿è¡Œ");
+				}
+				try {
+					Thread.sleep(1000*60*60*sleepHour);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
-			/*
-			 * Èôsuccess»òÕßerror»òÕßsubmited£¬ÔòµÈµ½µÚ¶þÌìµÄÊ±¼äÔÙÖ´ÐÐ
-			 * Èônoform£¬ÔòÃ¿¸ô1Ð¡Ê±²éÑ¯ÊÇ·ñ·¢²¼ÐÂ±íµ¥
-			 */
-			if ("success".equals(result)) {
-				System.out.print(SendMail.send(new String[] { "½ñÈÕÐ£Ô°ÎÊ¾íÌá½»Í¨Öª", "½ñÈÕ±íµ¥Ìá½»½á¹û£º³É¹¦£¡" }));
-				sleepHour=24-c.get(Calendar.HOUR_OF_DAY)+hour;
-				System.out.println("³ÌÐòÐÝÃß"+sleepHour+"Ð¡Ê±ºóÔËÐÐ");
-			} else if ("error".equals(result)) {
-				System.out.print(SendMail.send(new String[] { "½ñÈÕÐ£Ô°ÎÊ¾íÌá½»Í¨Öª", "½ñÈÕ±íµ¥Ìá½»½á¹û£ºÊ§°Ü¡£ÇëÊÖ¶¯Ìá½»" }));
-				sleepHour=24-c.get(Calendar.HOUR_OF_DAY)+hour;
-				System.out.println("³ÌÐòÐÝÃß"+sleepHour+"Ð¡Ê±ºóÔËÐÐ");
-			} else if ("noform".equals(result)) {
-				sleepHour=1;
-				System.out.println("³ÌÐòÐÝÃß"+sleepHour+"Ð¡Ê±ºóÔËÐÐ");
-			} else if ("submited".equals(result)) {
-				sleepHour=24-c.get(Calendar.HOUR_OF_DAY)+hour;
-				System.out.println("³ÌÐòÐÝÃß"+sleepHour+"Ð¡Ê±ºóÔËÐÐ");
+		}).start();
+		//å¼€å¯ä¿æŒä¼šè¯çº¿ç¨‹
+		new Thread(()->{
+			while(true) {
+				HttpUtil.sendGet(Data.keepingUrl,Data.getHeaders());
+				try {
+					Thread.sleep(1000*60*10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-			Thread.sleep(1000*60*60*sleepHour);
-			
-		}
+		}).start();
 
 	}
 }
