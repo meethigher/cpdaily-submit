@@ -1,25 +1,28 @@
-
-
+package auto_release;
 
 import net.sf.json.JSONObject;
 
 /**
  * 
- * Form类
+ * Form
+ *
  * @author kit chen
- * @description 通过这个类，返回所要提交的json字符串形式的表单数据
+ * @github https://github.com/meethigher
+ * @blog https://meethigher.top
+ *
  */
 public class Form {
 	private String formWid;
 	private String address;
 	private String collectWid;
 	private String schoolTaskWid;
+	private boolean uaIsCpadaily = true;
 	private String form;
 
 	public Form() {
 		super();
 	}
-	
+
 	public Form(String formWid, String address, String collectWid, String schoolTaskWid, String form) {
 		super();
 		this.formWid = formWid;
@@ -36,6 +39,7 @@ public class Form {
 		data.put("address", address);
 		data.put("collectWid", collectWid);
 		data.put("schoolTaskWid", schoolTaskWid);
+		data.put("uaIsCpadaily", uaIsCpadaily);
 		data.put("form", form);
 		return data.toString();
 	}
