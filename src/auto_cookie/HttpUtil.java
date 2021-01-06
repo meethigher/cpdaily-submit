@@ -1,4 +1,4 @@
-package auto_release;
+package auto_cookie;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,7 +19,7 @@ import java.util.Set;
  * @author kit chen
  * @github https://github.com/meethigher
  * @blog https://meethigher.top
- *
+ * @time 2021Äê1ÔÂ6ÈÕ
  */
 public class HttpUtil {
 	public static String sendGet(String url, Map<String, String> headers) {

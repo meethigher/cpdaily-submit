@@ -1,4 +1,4 @@
-package auto_release;
+package auto_cookie;
 
 import java.util.Date;
 import java.util.Properties;
@@ -17,7 +17,7 @@ import javax.mail.internet.MimeMessage;
  * @author kit chen
  * @github https://github.com/meethigher
  * @blog https://meethigher.top
- *
+ * @time 2021Äê1ÔÂ6ÈÕ
  */
 public class SendMail {
 	public static String send(String[] mail) {

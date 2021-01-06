@@ -1,4 +1,4 @@
-package auto_release;
+package auto_cookie;
 
 import java.util.Base64;
 import java.util.UUID;
@@ -14,7 +14,7 @@ import net.sf.json.JSONObject;
  * @author kit chen
  * @github https://github.com/meethigher
  * @blog https://meethigher.top
- *
+ * @time 2021年1月6日
  */
 public class CpdailyExtension {
 	// 算法的模式：DES、3DES、AES、RC

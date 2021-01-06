@@ -1,4 +1,4 @@
-package auto_release;
+package auto_cookie;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ import net.sf.json.JSONObject;
  * @author kit chen
  * @github https://github.com/meethigher
  * @blog https://meethigher.top
- *
+ * @time 2021年1月6日
  */
 public class CpDaily {
 
@@ -24,7 +24,6 @@ public class CpDaily {
 	public static String[] getForm() {
 		String todayData = HttpUtil.sendPost(Data.queryCollector, "{\"pageSize\": 6,\"pageNumber\": 1}",
 				Data.getSubHeaders());
-		System.out.println(todayData);
 		JSONArray todayForm = null;
 		try {
 			// 表单信息
@@ -134,7 +133,6 @@ public class CpDaily {
 	public static boolean isSelected(String name) {
 		String[] items = Data.key.split(",");
 		for (String i : items) {
-			System.out.println(i);
 			if (i.equals(name))
 				return true;
 		}

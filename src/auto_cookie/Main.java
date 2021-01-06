@@ -1,4 +1,4 @@
-package auto_release;
+package auto_cookie;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author kit chen
  * @github https://github.com/meethigher
  * @blog https://meethigher.top
- *
+ * @time 2021年1月6日
  */
 public class Main {
 	private static int sh;
@@ -20,6 +20,7 @@ public class Main {
 		System.out.println("读取配置文件..");
 		System.out.println("学号："+Data.id);
 		System.out.println("地址："+Data.address);
+		System.out.println("当前时间："+new Date().toLocaleString());
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("请输入您的MOD_AUTH_CAS：");
 		Data.modAuthCas = scanner.nextLine();
@@ -28,14 +29,14 @@ public class Main {
 		System.out.print("请输入结束监测的小时：");
 		eh = scanner.nextInt();
 		scanner.close();
-		System.out.println("2021-01-06 05:37版本正在运行...");
+		System.out.println("2021-01-06版本正在运行...");
 	}
 
 	public static String submit() {
 		String[] form = CpDaily.getForm();
 		if ("yes".equals(form[0])) {
 			if ("1".equals(form[1])) {
-				System.out.println("今日已经提交过了");
+				System.out.println("今日已经提交过了！");
 				return "submited";
 			} else {
 				String schoolTaskWid = CpDaily.getSchool(form);
@@ -51,7 +52,7 @@ public class Main {
 				}
 			}
 		} else {
-			System.out.println("尚未发表最新表单");
+			System.out.println("尚未发表最新表单！");
 			return "noform";
 		}
 	}
@@ -68,7 +69,7 @@ public class Main {
 		} else {
 			delay = (24 - c.get(Calendar.HOUR_OF_DAY) + sh) * 60 * 60 * 1000;
 		}
-		System.out.println("程序休眠" + delay / 1000 / 60 + "分钟后再次执行");
+		System.out.println("程序休眠" + delay / 1000 / 60 + "分钟后再次执行..");
 		return delay;
 	}
 

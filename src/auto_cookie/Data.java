@@ -1,4 +1,4 @@
-package auto_release;
+package auto_cookie;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.Map;
  * @author kit chen
  * @github https://github.com/meethigher
  * @blog https://meethigher.top
- *
+ * @time 2021Äê1ÔÂ6ÈÕ
  */
 public class Data {
 
