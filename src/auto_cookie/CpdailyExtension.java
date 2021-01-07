@@ -18,15 +18,15 @@ import net.sf.json.JSONObject;
  */
 public class CpdailyExtension {
 	// 算法的模式：DES、3DES、AES、RC
-	private static final String MODE_ALGORITHM = "DES";
+	private static final String modeAlgorithm = "DES";
 	// 算法的标准转化名称
-	private static final String NAME = "DES/CBC/PKCS5Padding";
+	private static final String name = "DES/CBC/PKCS5Padding";
 	// 编码格式
-	private static final String CHARSET = "UTF-8";
+	private static final String charset = "UTF-8";
 	// 明文
-	private static final String TEXT = "abcde";
-	// 原始密钥
-	private static final String KEY = "ST83=@XV";
+	private static final String text = "abcde";
+	// 原始密钥，2021-1-8日ST83=@XV弃用
+	private static final String key = "b3L26XNL";
 	// 初始化向量，简称IV
 	private static byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8 };
 
@@ -61,11 +61,11 @@ public class CpdailyExtension {
 	 */
 	public static String DESEncrypt(String text, String key, String charset) throws Exception {
 		// 通过给定的字节数组构建一个密钥
-		SecretKeySpec sks = new SecretKeySpec(key.getBytes(charset), MODE_ALGORITHM);
+		SecretKeySpec sks = new SecretKeySpec(key.getBytes(charset), modeAlgorithm);
 		// 使用IV构造对象
 		IvParameterSpec ivPS = new IvParameterSpec(iv);
 		// 1.获取加解密的算法工具类
-		Cipher cipher = Cipher.getInstance(NAME);
+		Cipher cipher = Cipher.getInstance(name);
 		// 2.对工具类进行初始化
 		cipher.init(Cipher.ENCRYPT_MODE, sks, ivPS);
 		// 3.用加密工具类对象对明文进行加密
@@ -88,11 +88,11 @@ public class CpdailyExtension {
 		// 先进行Base64解码
 		text = Base64Decrypt(text);
 		// 通过给定的字节数组构建一个密钥
-		SecretKeySpec sks = new SecretKeySpec(key.getBytes(charset), MODE_ALGORITHM);
+		SecretKeySpec sks = new SecretKeySpec(key.getBytes(charset), modeAlgorithm);
 		// 使用IV构造对象
 		IvParameterSpec ivPS = new IvParameterSpec(iv);
 		// 1.获取加解密的算法工具类
-		Cipher cipher = Cipher.getInstance(NAME);
+		Cipher cipher = Cipher.getInstance(name);
 		// 2.对工具类进行初始化
 		cipher.init(Cipher.DECRYPT_MODE, sks, ivPS);
 		// 3.用加密工具类对象对明文进行解密
@@ -111,14 +111,14 @@ public class CpdailyExtension {
 		object.put("systemVersion", "11");
 		object.put("model", "MI 11");
 		object.put("deviceId", UUID.randomUUID().toString());
-		object.put("appVersion", "8.1.11");
+		object.put("appVersion", "8.2.14");
 		// 清华大学水木年华的经纬度，随便写啦
 		object.put("lon", 116.32284422133253);
 		object.put("lat", 40.00301874717021);
 		// 学号
 		object.put("userId", id);
 		try {
-			return DESEncrypt(object.toString(), KEY, CHARSET);
+			return DESEncrypt(object.toString(), key, charset);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("生成CpdailyExtension错误");
