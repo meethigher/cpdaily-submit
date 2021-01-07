@@ -25,7 +25,7 @@ public class CpdailyExtension {
 	private static final String charset = "UTF-8";
 	// 明文
 	private static final String text = "abcde";
-	// 原始密钥，2021-1-8日ST83=@XV弃用
+	// 原始密钥，2021-1-8日ST83=@XV弃用，此处感谢大佬https://github.com/ZimoLoveShuang/auto-sign/issues/38
 	private static final String key = "b3L26XNL";
 	// 初始化向量，简称IV
 	private static byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8 };
