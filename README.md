@@ -4,10 +4,12 @@
 
 思路看篇文章[今日校园实现自动监测并提交最新表单](https://meethigher.top/blog/2020/cpdaily-automation/)
 
-历史源码
+历史源码（2021年1月9日）
 
-* [1.0](https://github.com/meethigher/cpdaily-submit/tree/1.0)
-* [2.0](https://github.com/meethigher/cpdaily-submit/tree/2.0)
+* [1.0](https://github.com/meethigher/cpdaily-submit/tree/1.0)：已失效
+* [2.0](https://github.com/meethigher/cpdaily-submit/tree/2.0)：已失效
+* [2.1](https://github.com/meethigher/cpdaily-submit/tree/2.1)
+* [最新版](https://github.com/meethigher/cpdaily-submit)
 
 使用方法
 
