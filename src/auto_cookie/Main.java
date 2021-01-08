@@ -18,9 +18,9 @@ public class Main {
 	private static int eh;
 	static {
 		System.out.println("读取配置文件..");
-		System.out.println("学号："+Data.id);
-		System.out.println("地址："+Data.address);
-		System.out.println("当前时间："+new Date().toLocaleString());
+		System.out.println("学号：" + Data.id);
+		System.out.println("地址：" + Data.address);
+		System.out.println("当前时间：" + new Date().toLocaleString());
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("请输入您的MOD_AUTH_CAS：");
 		Data.modAuthCas = scanner.nextLine();
@@ -48,6 +48,8 @@ public class Main {
 					return "success";
 				} else {
 					System.out.println("今日表单提交失败，失败报告->" + message);
+					System.out.println(SendMail.send(new String[] { "问卷提交失败通知", "时间：" + new Date().toLocaleString()
+							+ "\n" + "失败：" + message }));
 					return "error";
 				}
 			}
@@ -62,7 +64,7 @@ public class Main {
 	 */
 	public static int getDelay(String result, Calendar c) {
 		int delay;
-		if ("success".equals(result) || "submited".equals(result) || "error".equals(result)) {
+		if ("success".equals(result) || "error".equals(result)) {
 			delay = 1000 * 60 * 60 * 24 - 1000 * 1;
 		} else if ("noform".equals(result)) {
 			delay = 1000 * 60 * 30;

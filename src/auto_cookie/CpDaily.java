@@ -150,6 +150,7 @@ public class CpDaily {
 	public static String submit(String[] fields, String schoolTaskWid, String address) {
 		String formFields = getFields(fields);
 		String param = new Form(fields[3], address, fields[2], schoolTaskWid, formFields).toString();
+		System.out.println("«Î«Ûƒ⁄»›£∫" + param);
 		String result = HttpUtil.sendPost(Data.submitForm, param, Data.getSubHeaders());
 		return JSONObject.fromObject(result).get("message").toString();
 	}
