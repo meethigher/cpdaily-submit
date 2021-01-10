@@ -1,14 +1,16 @@
 # 使用的话，只需要修改collection.properties即可。适合单选问卷！
 
-auto_cookie与auto_login是不同的版本，可以单独使用。auto_cookie是去年5月份搞的，今年有时间，就把auto_login的也整了。
+我自己的话，用cookie版用习惯了，自己用的话足够了。本来写这个login版的话，是想着自助签到系统。帮人代挂来着，后来想了想工程量太大了，写完login就放弃了，因为手头还有很多别的事情要做。
 
-auto_cookie不需要密码，需要抓包到MOD_AUTH_CAS，脚本自动保持登录，适用于所有学校
+cookie与login是不同的版本，可以单独使用。cookie是去年5月份搞的，今年放寒假，就在cookie的基础上把login的也写好了。
 
-auto_login只需要配置好collection.properties即可，免抓包。网上千篇一律自动登录的，我看了一下，好像都是NOCLOUD学校的。auto_login支持今日校园CLOUD学校，截止到2021年1月11，我应该是第一个开源这类学校自动登录源码的吧，网上还有人付费卖，啧啧
+cookie不需要密码，需要抓包到MOD_AUTH_CAS，脚本自动保持登录
 
-auto_cookie实现思路看这篇文章[今日校园实现自动监测并提交最新表单](https://meethigher.top/blog/2020/cpdaily-automation/)
+login只需要配置好collection.properties即可，免抓包。login支持今日校园CLOUD学校，至于NOCLOUD的学校，我不清楚，我没有账号可以试。截止到2021年1月11，我应该是第一个开源这类学校自动登录源码的吧
 
-auto_login实现思路看这篇文章[今日校园自动登录教程](https://meethigher.top/blog/2021/cpdaily-autologin/)
+cookie实现思路看这篇文章[今日校园实现自动监测并提交最新表单](https://meethigher.top/blog/2020/cpdaily-automation/)
+
+login实现思路看这篇文章[今日校园自动登录教程](https://meethigher.top/blog/2021/cpdaily-autologin/)
 
 历史源码（2021年1月11日）
 
