@@ -6,8 +6,7 @@ cookie与login是不同的版本，可以单独使用。cookie是去年5月份�
 
 cookie不需要密码，需要抓包到MOD_AUTH_CAS，脚本自动保持登录
 
-login只需要配置好collection.properties即可，免抓包。login支持今日校园CLOUD学校，至于NOCLOUD的学校，我不清楚，我没有账号可以试。截止到2021年1月11，我应该是第一个开源这类学校自动登录源码的吧
-
+login只需要配置好collection.properties即可，免抓包。login支持今日校园CLOUD学校。
 cookie实现思路看这篇文章[今日校园实现自动监测并提交最新表单](https://meethigher.top/blog/2020/cpdaily-automation/)
 
 login实现思路看这篇文章[今日校园自动登录教程](https://meethigher.top/blog/2021/cpdaily-autologin/)
